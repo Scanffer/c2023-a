@@ -1,0 +1,3 @@
+C:/Users/scanffer/CLionProjects/c2023-a/Gobang/cmake-build-debug/CMakeFiles/Gobang.dir
+C:/Users/scanffer/CLionProjects/c2023-a/Gobang/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/scanffer/CLionProjects/c2023-a/Gobang/cmake-build-debug/CMakeFiles/rebuild_cache.dir

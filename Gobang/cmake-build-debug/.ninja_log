@@ -1,0 +1,10 @@
+# ninja log v5
+1	324	7234793218932655	build.ninja	53b4158047684f22
+25	175	7234791877599857	CMakeFiles/Gobang.dir/Resource/variable.cpp.obj	cd367b9c0d3d045f
+19	659	7234791882455450	CMakeFiles/Gobang.dir/Resource/generator.cpp.obj	8e85c618e6ffe500
+0	313	7234791878976306	CMakeFiles/Gobang.dir/Resource/scrap.cpp.obj	e37cd4e7fd02a7cb
+5	641	7234791882094075	CMakeFiles/Gobang.dir/Resource/main.cpp.obj	c0bc037c6bad4bca
+9	321	7234791879057325	CMakeFiles/Gobang.dir/Resource/evaluate.cpp.obj	9af3470d88a7dab7
+42	344	7234791879299484	CMakeFiles/Gobang.dir/Resource/ui.cpp.obj	e73eed8ef53f0202
+34	649	7234791882334958	CMakeFiles/Gobang.dir/Resource/search.cpp.obj	85a9a61a0c5ff85b
+660	3369	7234791883858681	Gobang.exe	5cce5dcc506181d

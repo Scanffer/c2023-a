@@ -1,10 +1,10 @@
 ## 实验题目：五子棋AI
 
 ## GUI
+
 - [raylib](https://github.com/raysan5/raylib)
 - [EasyX](https://easyx.cn/)
 - [SFML](https://www.sfml-dev.org/)
-
 
 ## AI算法参考
 
