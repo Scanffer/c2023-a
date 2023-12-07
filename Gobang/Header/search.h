@@ -2,10 +2,10 @@
 #define GOBANG_SEARCH_H
 
 #include <iostream>
-#include "../Header/search.h"
-#include "../Header/evaluate.h"
-#include"../Header/generator.h"
-#include"../Header/scrap.h"
+#include "search.h"
+#include "evaluate.h"
+#include"generator.h"
+#include"scrap.h"
 
 void MaxMin(int deep);
 

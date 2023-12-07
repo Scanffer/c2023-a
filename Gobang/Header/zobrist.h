@@ -5,13 +5,12 @@
 #include<ctime>
 #include<iostream>
 #include<map>
-#include"../Header/variable.h"
+#include"variable.h"
 
 extern unsigned long long ZobristKey[3][16][16];
 extern std::map<unsigned long long, int> ZobristValue;
+extern unsigned long long key;
 
 void SetZobrist();
-
-unsigned long long GetBoardKey();
 
 #endif //C2023_CHALLENGE_ZOBRIST_H

@@ -2,6 +2,7 @@
 
 unsigned long long ZobristKey[3][16][16];
 std::map<unsigned long long, int> ZobristValue;
+unsigned long long key = 0;
 
 void SetZobrist() {
     std::default_random_engine e;
@@ -14,21 +15,10 @@ void SetZobrist() {
             }
         }
     }
-    unsigned long long key = 0;
     for (int i = 1; i <= 15; i++) {
         for (int j = 1; j <= 15; j++) {
             key ^= ZobristKey[0][i][j];
         }
     }
     ZobristValue[key] = 0;
-}
-
-unsigned long long GetBoardKey() {
-    unsigned long long key = 0;
-    for (int i = 1; i <= 15; i++) {
-        for (int j = 1; j <= 15; j++) {
-            key ^= ZobristKey[board[i][j]][i][j];
-        }
-    }
-    return key;
 }

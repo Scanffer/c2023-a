@@ -1,5 +1,4 @@
 #include "../Header/ui.h"
-#include"../Header/scrap.h"
 
 void MainPage() {
     while (!IsGameStarted) {

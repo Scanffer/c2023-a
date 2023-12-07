@@ -2,8 +2,8 @@
 #define GOBANG_EVALUATE_H
 
 #include<cmath>
-#include "../Header/variable.h"
-#include "../Header/zobrist.h"
+#include "variable.h"
+#include "zobrist.h"
 
 void evaluate();
 

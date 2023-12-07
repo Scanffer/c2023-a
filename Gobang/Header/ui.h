@@ -2,7 +2,8 @@
 #define GOBANG_UI_H
 
 #include<raylib.h>
-
+#include"variable.h"
+#include"scrap.h"
 void MainPage();
 
 void DrawBoard();

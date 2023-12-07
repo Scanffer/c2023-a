@@ -1,7 +1,6 @@
 #include "../Header/evaluate.h"
 
 void evaluate() {
-    unsigned long long key = GetBoardKey();
     if (ZobristValue.find(key) != ZobristValue.end()) {
         score[0] = ZobristValue[key];
         return;
