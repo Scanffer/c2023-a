@@ -59,8 +59,8 @@ void LineEvaluate(const int *k, int length, int color) {
         }
         if (k[i] != color && Index) {//一串同色棋子结束 开始计分
             int ScoreCount = i - Index;
-            if (ScoreCount == 5) {//连成五子就不用判断左右隔断问题了
-                score[color] += 100000;
+            if (ScoreCount >= 5) {//连成五子就不用判断左右隔断问题了
+                score[color] += (int) pow(10, ScoreCount);
                 Index = 0;
                 continue;
             }
@@ -76,7 +76,7 @@ void LineEvaluate(const int *k, int length, int color) {
             } else {
                 ScoreCount = 0;     //如果两侧都隔断，这串同色棋子就失去意义，不计分
             }
-            score[color] += (int)pow(10, ScoreCount);
+            score[color] += (int) pow(10, ScoreCount);
             Index = 0;
         }
     }
