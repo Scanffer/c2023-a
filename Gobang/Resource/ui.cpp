@@ -1,7 +1,7 @@
 #include "../Header/ui.h"
 
 void MainPage() {
-    while (!IsGameStarted) {
+    while (!IsGameStarted && !WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(WHITE);
         DrawText("Gobang Game!", 150, 250, 30, BLACK);

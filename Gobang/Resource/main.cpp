@@ -20,6 +20,7 @@ int main() {
     SetTargetFPS(15);
     tBackground = LoadTextureFromImage(Background);
     MainPage();
+    if (!IsGameStarted)return 0;
     while (!WindowShouldClose()) {
         DrawBoard(); //画棋盘和棋子
         if ((Round & 1) == AiTurn) {
