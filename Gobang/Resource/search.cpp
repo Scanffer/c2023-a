@@ -13,7 +13,7 @@ void MaxMin(int deep) {
         Point a = p[i];
         a.color = AiColor;
         PlacePoint(a);
-        int k = Min(deep - 1, INT_MAX, INT_MIN);
+        int k = Min(deep - 1, INT_MAX, best);
         TakePoint(a);
         if (k == best) {
             BestPoint[++BestCnt] = a;
