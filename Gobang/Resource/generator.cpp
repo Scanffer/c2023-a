@@ -32,12 +32,12 @@ int PointScoreCount(Point a, int color) {
                 break;
             }
         }
-        if (head + tail + 1 == 5) {
-            result += 100000;
+        if (head + tail + 1 >= 5) {
+            result += (int) pow(10, head + tail + 1);
             continue;
         }
         if (IsHeadBlocked + IsTailBlocked < 2) {
-            result += pow(10, head + tail + 1 - IsHeadBlocked - IsTailBlocked);
+            result += (int) pow(10, head + tail + 1 - IsHeadBlocked - IsTailBlocked);
         }
     }
     return result;
