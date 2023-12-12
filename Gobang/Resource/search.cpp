@@ -7,7 +7,7 @@ void MaxMin(int deep) {
     auto PointPair = PlaceGenerate(AiColor.r ? 1 : 2);
     Point *p = PointPair.first;
     int cnt = PointPair.second;
-    //将可下的位置保存
+    cnt = cnt > 10 ? 10 : cnt;
     int best = INT_MIN;
     for (int i = 1; i <= cnt; i++) { //博弈树的搜索
         Point a = p[i];
@@ -38,6 +38,7 @@ int Min(int deep, int alpha, int beta) {
     auto PointPair = PlaceGenerate(AiColor.r ? 2 : 1);
     Point *p = PointPair.first;
     int cnt = PointPair.second;
+    cnt = cnt > 10 ? 10 : cnt;
     int best = INT_MAX;
     for (int i = 1; i <= cnt; i++) {
         Point a = p[i];
@@ -61,6 +62,7 @@ int Max(int deep, int alpha, int beta) {
     auto PointPair = PlaceGenerate(AiColor.r ? 1 : 2);
     Point *p = PointPair.first;
     int cnt = PointPair.second;
+    cnt = cnt > 10 ? 10 : cnt;
     int best = INT_MIN;
     for (int i = 1; i <= cnt; i++) {
         Point a = p[i];

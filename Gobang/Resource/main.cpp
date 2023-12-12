@@ -11,18 +11,19 @@
 //2023.11.28 启发式搜索优化完毕 2.0结束
 //2023.11.29 试图将项目结构改为多文件而失败
 //2023.12.2  成功将项目改为多文件结构
-//2023.12.7  Zobrist模块加入 在O3优化的前提下，可进行6层搜索
+//2023.12.7  Zobrist模块加入 在O3优化的前提下，可....勉强进行6层搜索
+//2023.12.12 release模式下可正常进行6层搜索  如若进一步在搜索过程中把搜索点个数限制在10个以内，可进行8层搜索
 int main() {
     SetZobrist();
     srand((unsigned) time(nullptr));
     InitWindow(647, 682, "Gobang Game");
-    SetTargetFPS(60);
+    SetTargetFPS(15);
     tBackground = LoadTextureFromImage(Background);
     MainPage();
     while (!WindowShouldClose()) {
         DrawBoard(); //画棋盘和棋子
         if ((Round & 1) == AiTurn) {
-            MaxMin(6);
+            MaxMin(8);
             continue;
         }
         if ((Round & 1) == PlayerTurn) {

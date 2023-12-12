@@ -51,7 +51,7 @@ void evaluate() {
     ZobristValue[key] = score[0];
 }
 
-void LineEvaluate(int *k, int length, int color) {
+void LineEvaluate(const int *k, int length, int color) {
     int Index = 0;
     for (int i = 1; i <= length + 1; i++) {
         if (k[i] == color && !Index) {//记录一下 一串同色棋子第一个的位置
@@ -76,7 +76,7 @@ void LineEvaluate(int *k, int length, int color) {
             } else {
                 ScoreCount = 0;     //如果两侧都隔断，这串同色棋子就失去意义，不计分
             }
-            score[color] += pow(10, ScoreCount);
+            score[color] += (int)pow(10, ScoreCount);
             Index = 0;
         }
     }

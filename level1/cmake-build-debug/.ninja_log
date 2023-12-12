@@ -1,0 +1,5 @@
+# ninja log v5
+0	1058	7234793924379845	CMakeFiles/p01_running_letter.dir/p01_running_letter/main.c.obj	e997f6e23ab31a63
+1062	2160	7234793925379368	p01_running_letter.exe	ee32751926f7f9f9
+0	1370	7234794551365361	CMakeFiles/p07_maze.dir/p07_maze/main.c.obj	32a6a253e1c13935
+1371	2467	7234794552400727	p07_maze.exe	37985a1b8245819c

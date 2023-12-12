@@ -49,7 +49,7 @@ int y_way[9] = {0, -1, -1, -1, 0, 1, 1, 1, 0};
 pair<Point *, int> PlaceGenerate(int color) {
     if (NumOfSeated == 0) {
         int cnt = 1;
-        auto p = (Point *) malloc(20 * sizeof(Point));
+        auto p = (Point *) calloc(20, sizeof(Point));
         p[1] = {8, 8};
         return {p, cnt};
     }
@@ -57,7 +57,7 @@ pair<Point *, int> PlaceGenerate(int color) {
     Point Kind[6][3][100] = {0}; //第一维 1五 2活四 3双三 4活三 5其他 第二维 1白色 2黑色
     int KindCnt[6][3] = {0}; //同上
     int PointScore[3] = {0};
-    auto p = (Point *) malloc(200 * sizeof(Point));
+    auto p = (Point *) calloc(200, sizeof(Point));
     int cnt = 0;
     for (int i = 1; i <= NumOfSeated; i++) {
         int x = SeatedList[i].x, y = SeatedList[i].y;

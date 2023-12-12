@@ -7,6 +7,6 @@
 
 void evaluate();
 
-void LineEvaluate(int *k, int length, int color);
+void LineEvaluate(const int *k, int length, int color);
 
 #endif //GOBANG_EVALUATE_H

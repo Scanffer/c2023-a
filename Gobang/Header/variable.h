@@ -3,6 +3,7 @@
 
 #include<raylib.h>
 
+
 extern Image Background;
 extern Texture tBackground;
 struct Point {
