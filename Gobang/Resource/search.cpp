@@ -1,19 +1,21 @@
 #include"../Header/search.h"
 
-Point BestPoint[20];
+Point BestPoint[50];
 int BestCnt = 0;
 
 void MaxMin(int deep) {
+  //  printf("Round=%d\n", Round);
     auto PointPair = PlaceGenerate(AiColor.r ? 1 : 2);
     Point *p = PointPair.first;
     int cnt = PointPair.second;
-    cnt = cnt > 10 ? 10 : cnt;
+    cnt = cnt > limit ? limit : cnt;
     int best = INT_MIN;
     for (int i = 1; i <= cnt; i++) { //博弈树的搜索
         Point a = p[i];
         a.color = AiColor;
         PlacePoint(a);
         int k = Min(deep - 1, INT_MAX, best);
+      //  printf("x=%d y=%d score=%d\n", a.x, a.y, k);
         TakePoint(a);
         if (k == best) {
             BestPoint[++BestCnt] = a;
@@ -24,7 +26,8 @@ void MaxMin(int deep) {
             BestPoint[1] = a;
         }
     }
-    PlacePoint(BestPoint[1 + rand() % BestCnt]);
+  //  printf("\n");
+    PlacePoint(BestPoint[1 + e() % BestCnt]);
     Round++;   //回合数加一
     free(p);
 }
@@ -38,7 +41,7 @@ int Min(int deep, int alpha, int beta) {
     auto PointPair = PlaceGenerate(AiColor.r ? 2 : 1);
     Point *p = PointPair.first;
     int cnt = PointPair.second;
-    cnt = cnt > 10 ? 10 : cnt;
+    cnt = cnt > limit ? limit : cnt;
     int best = INT_MAX;
     for (int i = 1; i <= cnt; i++) {
         Point a = p[i];
@@ -51,7 +54,6 @@ int Min(int deep, int alpha, int beta) {
     }
     free(p);
     return best;
-
 }
 
 int Max(int deep, int alpha, int beta) {
@@ -62,7 +64,7 @@ int Max(int deep, int alpha, int beta) {
     auto PointPair = PlaceGenerate(AiColor.r ? 1 : 2);
     Point *p = PointPair.first;
     int cnt = PointPair.second;
-    cnt = cnt > 10 ? 10 : cnt;
+    cnt = cnt > limit ? limit : cnt;
     int best = INT_MIN;
     for (int i = 1; i <= cnt; i++) {
         Point a = p[i];

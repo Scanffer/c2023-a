@@ -1,8 +1,31 @@
 #include "../Header/evaluate.h"
 
+void LoadPointScoreMap() {
+    FILE *fp;
+    fp = fopen("hash", "r");
+    char text[20] = {0};
+    int mark;
+    for (int i = 0; i <= 15; i++) {
+        for (int j = 0; j <= 2; j++) {
+            unsigned long long num = 1 + e() % ULONG_LONG_MAX;
+            PointKey[i][j] = num;
+        }
+    }
+    for (int i = 1; i <= 576; i++) {
+        fscanf(fp, "%s %d\n", text, &mark);
+        mark = (int) pow(10, mark);
+        unsigned long long key = 0;
+        for (int j = 0;; j++) {
+            if (text[j] == 0)break;
+            key ^= PointKey[j][text[j] - '0'];
+        }
+        PointScoreMap[key] = mark;
+    }
+}
+
 void evaluate() {
-    if (ZobristValue.find(key) != ZobristValue.end()) {
-        score[0] = ZobristValue[key];
+    if (ZobristValue.find(BoardKey) != ZobristValue.end()) {
+        score[0] = ZobristValue[BoardKey];
         return;
     }
     score[0] = score[1] = score[2] = 0;
@@ -48,36 +71,68 @@ void evaluate() {
     }
     int AiSide = AiColor.r ? 1 : 2;
     score[0] = score[AiSide] - score[3 - AiSide];  //计算评分
-    ZobristValue[key] = score[0];
+    ZobristValue[BoardKey] = score[0];
 }
 
 void LineEvaluate(const int *k, int length, int color) {
-    int Index = 0;
-    for (int i = 1; i <= length + 1; i++) {
-        if (k[i] == color && !Index) {//记录一下 一串同色棋子第一个的位置
-            Index = i;
+    int index = 0;
+    int line[18];
+    for (int i = 1; i <= length; i++) {
+        int head, tail, IsHeadBlocked, IsTailBlocked;
+        if (k[i] == color && !index) {//记录 一串同色棋子第一个的位置
+            index = i;
+            head = -1, tail = -1, IsHeadBlocked = 0, IsTailBlocked = 0;
+            if (index == 1) {
+                head = 0, IsHeadBlocked = 1;
+            }
+            if (k[index - 1] == 3 - color) {
+                head = index - 1;
+            }
+            if (k[index - 1] == 0) {
+                head = index - 2;
+                if (index - 2 == 0) {
+                    IsHeadBlocked = 1;
+                }
+            }
         }
-        if (k[i] != color && Index) {//一串同色棋子结束 开始计分
-            int ScoreCount = i - Index;
-            if (ScoreCount >= 5) {//连成五子就不用判断左右隔断问题了
-                score[color] += (int) pow(10, ScoreCount);
-                Index = 0;
-                continue;
+        if (k[i] == 3 - color && index) { //2
+            tail = i;
+            int cnt = 0;
+            for (int j = head; j <= tail; j++) {
+                line[cnt++] = k[j];
             }
-            int left = 0, right = 0;
-            if (k[Index - 1] == (color ^ 3) || Index - 1 == 0) {    // 10^11=01 01^11=10
-                left = 1;                          //看左侧是否有隔断
+            if (IsHeadBlocked) {
+                line[0] = 3 - color;
             }
-            if (k[i] == (color ^ 3) || i == length + 1) {
-                right = 1;              //此处是否隔断
+            unsigned long long key = 0;
+            for (int j = 0; j < cnt; j++) {
+                key ^= PointKey[j][line[j]];
             }
-            if (left + right <= 1) {    //如果不是两侧都隔断
-                ScoreCount -= (left + right);   //减去隔断的分
-            } else {
-                ScoreCount = 0;     //如果两侧都隔断，这串同色棋子就失去意义，不计分
+            score[color] += PointScoreMap[key];
+            index = 0;
+        }
+        if (k[i] == 0 && index) {
+            if (k[i + 1] == color)continue;
+            tail = i + 1;
+            if (i == length) {
+                IsTailBlocked = 1;
             }
-            score[color] += (int) pow(10, ScoreCount);
-            Index = 0;
+            int cnt = 0;
+            for (int j = head; j <= tail; j++) {
+                line[cnt++] = k[j];
+            }
+            if (IsHeadBlocked) {
+                line[0] = 3 - color;
+            }
+            if (IsTailBlocked) {
+                line[cnt - 1] = 3 - color;
+            }
+            unsigned long long key = 0;
+            for (int j = 0; j < cnt; j++) {
+                key ^= PointKey[j][line[j]];
+            }
+            score[color] += PointScoreMap[key];
+            index = 0;
         }
     }
 }

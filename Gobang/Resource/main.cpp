@@ -13,9 +13,12 @@
 //2023.12.2  成功将项目改为多文件结构
 //2023.12.7  Zobrist模块加入 在O3优化的前提下，可....勉强进行6层搜索
 //2023.12.12 release模式下可正常进行6层搜索  如若进一步在搜索过程中把搜索点个数限制在10个以内，可进行8层搜索
+//2023.12.17 棋型hash打表完成，在总评估函数和单点评估方面加入了hash，项目结束开发（得期末复习了嘤嘤嘤）
 int main() {
+    e.seed(time(nullptr));
     SetZobrist();
     srand((unsigned) time(nullptr));
+    LoadPointScoreMap();
     InitWindow(647, 682, "Gobang Game");
     SetTargetFPS(15);
     tBackground = LoadTextureFromImage(Background);

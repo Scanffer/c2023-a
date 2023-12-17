@@ -5,6 +5,8 @@
 #include "variable.h"
 #include "zobrist.h"
 
+void LoadPointScoreMap();
+
 void evaluate();
 
 void LineEvaluate(const int *k, int length, int color);

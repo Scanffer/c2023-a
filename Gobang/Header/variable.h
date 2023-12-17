@@ -2,8 +2,14 @@
 #define GOBANG_VARIABLE_H
 
 #include<raylib.h>
+#include<random>
+#include<map>
 
+using namespace std;
 
+extern map<unsigned long long, int> PointScoreMap;
+extern unsigned long long PointKey[16][3];
+extern default_random_engine e;
 extern Image Background;
 extern Texture tBackground;
 struct Point {
@@ -16,6 +22,7 @@ extern Color PlayerColor, AiColor;   //双方棋子的颜色
 extern int AiTurn, PlayerTurn;    //双方回合数的奇偶性
 extern int Round;         //游戏回合数
 extern int board[17][17];   //棋盘状况
+extern int limit;
 
 extern Point SeatedList[250];//已经下的子
 extern int NumOfSeated;  //已经下的子的个数
