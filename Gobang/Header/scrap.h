@@ -3,7 +3,7 @@
 
 #include"variable.h"
 #include<cmath>
-#include"zobrist.h"
+#include"hash.h"
 void PlacePoint(Point a);
 
 void TakePoint(Point a);

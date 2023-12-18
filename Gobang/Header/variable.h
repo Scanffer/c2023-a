@@ -7,8 +7,6 @@
 
 using namespace std;
 
-extern map<unsigned long long, int> PointScoreMap;
-extern unsigned long long PointKey[16][3];
 extern default_random_engine e;
 extern Image Background;
 extern Texture tBackground;

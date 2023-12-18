@@ -4,7 +4,7 @@
 #include<iostream>
 #include"variable.h"
 #include<cmath>
-
+#include"hash.h"
 using namespace std;
 
 int PointScoreCount(Point a, int color);

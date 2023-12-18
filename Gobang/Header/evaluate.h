@@ -3,9 +3,7 @@
 
 #include<cmath>
 #include "variable.h"
-#include "zobrist.h"
-
-void LoadPointScoreMap();
+#include "hash.h"
 
 void evaluate();
 

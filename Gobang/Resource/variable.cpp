@@ -1,7 +1,5 @@
 #include "../Header/variable.h"
 
-map<unsigned long long, int> PointScoreMap;
-unsigned long long PointKey[16][3];
 default_random_engine e;
 Image Background = LoadImage(R"(C:\Users\scanffer\CLionProjects\Gobang_2\Gobang_board.png)");
 Texture tBackground;   //图片加载进纹理

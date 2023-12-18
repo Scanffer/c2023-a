@@ -1,28 +1,5 @@
 #include "../Header/evaluate.h"
 
-void LoadPointScoreMap() {
-    FILE *fp;
-    fp = fopen("hash", "r");
-    char text[20] = {0};
-    int mark;
-    for (int i = 0; i <= 15; i++) {
-        for (int j = 0; j <= 2; j++) {
-            unsigned long long num = 1 + e() % ULONG_LONG_MAX;
-            PointKey[i][j] = num;
-        }
-    }
-    for (int i = 1; i <= 576; i++) {
-        fscanf(fp, "%s %d\n", text, &mark);
-        mark = (int) pow(10, mark);
-        unsigned long long key = 0;
-        for (int j = 0;; j++) {
-            if (text[j] == 0)break;
-            key ^= PointKey[j][text[j] - '0'];
-        }
-        PointScoreMap[key] = mark;
-    }
-}
-
 void evaluate() {
     if (ZobristValue.find(BoardKey) != ZobristValue.end()) {
         score[0] = ZobristValue[BoardKey];

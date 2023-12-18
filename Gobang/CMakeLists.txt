@@ -14,6 +14,6 @@ add_executable(Gobang Resource/main.cpp
         Header/ui.h
         Resource/variable.cpp
         Header/variable.h
-        Resource/zobrist.cpp
-        Header/zobrist.h)
+        Resource/hash.cpp
+        Header/hash.h)
 target_link_libraries(${PROJECT_NAME} raylib)

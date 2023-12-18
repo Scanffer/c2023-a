@@ -12,10 +12,8 @@ void work(char a,char b,int k){
 }
 int main() {
     int num;
-    printf("请输入汉诺塔圆盘个数:");
+    printf("Please enter the num of the plates:");
     scanf("%d",&num);
     work('A','C',num);
-    system("pause");
     return 0;
-
 }
