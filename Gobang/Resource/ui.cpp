@@ -27,11 +27,11 @@ void DrawBoard() {
     DrawTexture(tBackground, 0, 0, WHITE);
     for (int i = 1; i <= NumOfSeated; i++) {
         if (board[SeatedList[i].y][SeatedList[i].x]) {
-            double x = 28.0 + (SeatedList[i].x - 1) * 42.2, y = 25.0 + (SeatedList[i].y - 1) * 42.2;
+            double x = 28.0 + (SeatedList[i].x - 1) * 42.2, y = 26.0 + (SeatedList[i].y - 1) * 42.2;
             DrawCircle(x, y, 14, SeatedList[i].color);   //画出已经下的子
         }
     }
-    DrawCircle(28.0 + (SeatedList[NumOfSeated].x - 1) * 42.2, 25.0 + (SeatedList[NumOfSeated].y - 1) * 42.2, 3,
+    DrawCircle(28.0 + (SeatedList[NumOfSeated].x - 1) * 42.2, 26.0 + (SeatedList[NumOfSeated].y - 1) * 42.2, 3,
                SeatedList[NumOfSeated].color.r ? BLACK : WHITE);   //标记一下最后下的棋子
     EndDrawing();
 }

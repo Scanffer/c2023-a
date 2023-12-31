@@ -19,12 +19,12 @@ extern bool IsGameStarted;  //游戏是否开始
 extern Color PlayerColor, AiColor;   //双方棋子的颜色
 extern int AiTurn, PlayerTurn;    //双方回合数的奇偶性
 extern int Round;         //游戏回合数
-extern int board[17][17];   //棋盘状况
+extern int board[19][19];   //棋盘状况
 extern int limit;
 
-extern Point SeatedList[250];//已经下的子
+extern Point SeatedList[300];//已经下的子
 extern int NumOfSeated;  //已经下的子的个数
 extern int score[3];     //score[1]白子分 score[2]黑子分 score[0] 电脑得分减去玩家得分
-extern int NumOfRowSeated[16], NumOfColumnSeated[16];
-extern int NumOfLeftSeated[30], NumOfRightSeated[30];  //分别记录有子的行、列、斜行
+extern int NumOfRowSeated[18], NumOfColumnSeated[18];
+extern int NumOfLeftSeated[34], NumOfRightSeated[34];  //分别记录有子的行、列、斜行
 #endif //GOBANG_VARIABLE_H

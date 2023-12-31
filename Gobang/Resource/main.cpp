@@ -3,7 +3,6 @@
 #include "../Header/search.h"
 
 #pragma GCC optimize(3)
-
 //2023.11.18 遗留 PlaceGenerate函数未优化完毕(需要避免一个点多次被选入)
 //2023.11.19 完成至alpha-beta剪枝 PlaceGenerate初步优化
 //2023.11.19 遗留 搜索过程中对Win函数的处理有问题

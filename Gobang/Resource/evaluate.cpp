@@ -108,7 +108,10 @@ void LineEvaluate(const int *k, int length, int color) {
             for (int j = 0; j < cnt; j++) {
                 key ^= PointKey[j][line[j]];
             }
-            score[color] += PointScoreMap[key];
+            if (PointScoreMap.find(key) != PointScoreMap.end()) {
+                score[color] += PointScoreMap[key];
+            }
+
             index = 0;
         }
     }

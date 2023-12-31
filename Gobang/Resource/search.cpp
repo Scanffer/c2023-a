@@ -4,7 +4,6 @@ Point BestPoint[50];
 int BestCnt = 0;
 
 void MaxMin(int deep) {
-  //  printf("Round=%d\n", Round);
     auto PointPair = PlaceGenerate(AiColor.r ? 1 : 2);
     Point *p = PointPair.first;
     int cnt = PointPair.second;
@@ -14,10 +13,10 @@ void MaxMin(int deep) {
         Point a = p[i];
         a.color = AiColor;
         PlacePoint(a);
+        if (a.x > 15 || a.y < 0)printf("error\n");
         int k = Min(deep - 1, INT_MAX, best);
-      //  printf("x=%d y=%d score=%d\n", a.x, a.y, k);
         TakePoint(a);
-        if (k == best) {
+        if (best == k) {
             BestPoint[++BestCnt] = a;
         }
         if (k > best) {
@@ -26,8 +25,7 @@ void MaxMin(int deep) {
             BestPoint[1] = a;
         }
     }
-  //  printf("\n");
-    PlacePoint(BestPoint[1 + e() % BestCnt]);
+    PlacePoint(BestPoint[1 + (e() % BestCnt)]);
     Round++;   //回合数加一
     free(p);
 }

@@ -7,12 +7,12 @@
 #include<map>
 #include"variable.h"
 
-extern unsigned long long ZobristKey[3][16][16];
+extern unsigned long long ZobristKey[3][20][20];
 extern std::map<unsigned long long, int> ZobristValue;
 extern unsigned long long BoardKey;
 
-extern map<unsigned long long, int> PointScoreMap;
-extern unsigned long long PointKey[16][3];
+extern std::map<unsigned long long, int> PointScoreMap;
+extern unsigned long long PointKey[20][3];
 
 void LoadPointScoreMap();
 
